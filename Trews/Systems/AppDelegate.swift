@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Trews
 //
-//  Created by Nguyen Duc on 2/9/19.
-//  Copyright © 2019 Nguyen Duc. All rights reserved.
+//  Created by trungducc on 2/9/19.
+//  Copyright © 2019 trungducc. All rights reserved.
 //
 
 import UIKit
@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Use Alamofire status bar network activity helper
         NetworkActivityIndicatorManager.shared.isEnabled = true
+        
+        // Use app primary color for system components
+        window?.tintColor = Constants.Color.primary.color
         
         return true
     }
