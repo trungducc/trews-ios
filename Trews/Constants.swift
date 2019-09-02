@@ -32,8 +32,16 @@ enum Constants {
         
         static let username = NSLocalizedString("Username", comment: "")
         static let password = NSLocalizedString("Password", comment: "")
+        static let reenterPassword = NSLocalizedString("Re-enter password", comment: "")
         
         static let otherSignInOptions = NSLocalizedString("Or sign in with", comment: "")
+        
+        static let news = NSLocalizedString("News", comment: "")
+        
+        enum Error {
+            static let connectionError = NSLocalizedString("Connection error", comment: "")
+            static let internalServerError = NSLocalizedString("Internal Server Error", comment: "")
+        }
     }
     
     enum Image {

@@ -10,5 +10,7 @@ target 'Trews' do
   pod 'AlamofireNetworkActivityIndicator'
   pod 'SwiftLint'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'MaterialComponents/Snackbar'
+  pod 'KeychainAccess'
 
 end

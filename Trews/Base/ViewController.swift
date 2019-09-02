@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MaterialComponents.MaterialSnackbar
 
 class ViewController: UIViewController {
     
@@ -16,6 +17,14 @@ class ViewController: UIViewController {
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTouchOutside))
         view.addGestureRecognizer(gesture)
+    }
+    
+    // MARK: Public API
+    
+    func showMessage(_ message: String) {
+        let snackbarMessage = MDCSnackbarMessage()
+        snackbarMessage.text = message
+        MDCSnackbarManager.show(snackbarMessage)
     }
     
     // MARK: Private API

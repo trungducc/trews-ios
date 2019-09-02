@@ -10,6 +10,8 @@ import UIKit
 
 final class AppController {
     
+    private let client = Client()
+    
     // MARK: Public API
     
     func attachInitialUI(with window: UIWindow?) {
@@ -21,7 +23,7 @@ final class AppController {
     // MARK: Private API
     
     private func rootViewController() -> UIViewController {
-        return NavigationController(rootViewController: SignInViewController())
+        return NavigationController(rootViewController: SignInViewController(client: client))
     }
 
 }

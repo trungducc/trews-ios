@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class SignInViewController: ViewController {
+class SignInViewController: ViewController, SignUpViewControllerDelegate {
     
     private let containerView = UIView()
     private let usernameInputView = InputView()
@@ -20,12 +20,33 @@ class SignInViewController: ViewController {
     private let googleButton = UIButton(type: .custom)
     private let signUpButton = UIButton(type: .custom)
     
+    private let client: Client
+    
+    init(client: Client) {
+        self.client = client
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = Constants.Strings.signIn
 
         setupSubviews()
+    }
+    
+    // MARK: SignUpViewControllerDelegate
+    
+    func didSignUpSuccess(viewController: SignUpViewController, username: String, password: String) {
+        viewController.navigationController?.popViewController(animated: true)
+
+        usernameInputView.text = username
+        passwordInputView.text = password
+        updateSignInButtonState()
     }
     
     // MARK: Private API
@@ -66,6 +87,7 @@ class SignInViewController: ViewController {
         googleButton.imageView?.contentMode = .scaleAspectFit
         view.addSubview(googleButton)
         
+        signUpButton.addTarget(self, action: #selector(signUpButtonDidTouch), for: .touchUpInside)
         signUpButton.setTitle(Constants.Strings.signUp, for: .normal)
         signUpButton.titleLabel?.font = Constants.Font.signUpButtonFont
         signUpButton.setTitleColor(Constants.Color.signUpButtonTextColor.color, for: .normal)
@@ -137,16 +159,41 @@ class SignInViewController: ViewController {
     }
     
     @objc private func textFieldDidChange(textField: UIInputView) {
-        signInButton.isEnabled = usernameInputView.text!.count >= 6 && passwordInputView.text!.count >= 6
+        updateSignInButtonState()
     }
     
     @objc private func signInButtonDidTouch() {
+        view.endEditing(true)
+        
         guard let username = usernameInputView.text, let password = passwordInputView.text else {
             return
         }
         
-        Client.shared.signIn(username: username, password: password) { _ in
+        client.signIn(username: username, password: password) { error in
+            if let error = error {
+                self.showMessage(error)
+            } else {
+                self.didSignInSuccess()
+            }
         }
+    }
+    
+    @objc private func signUpButtonDidTouch() {
+        view.endEditing(true)
+        
+        let signUpViewController = SignUpViewController(client: client)
+        signUpViewController.delegate = self
+        navigationController?.pushViewController(signUpViewController, animated: true)
+    }
+    
+    private func updateSignInButtonState() {
+        signInButton.isEnabled = usernameInputView.text!.count >= 6 && passwordInputView.text!.count >= 6
+    }
+    
+    private func didSignInSuccess() {
+        let newsViewController = NewsViewController(client: client)
+        let newsNavigationController = NavigationController(rootViewController: newsViewController)
+        present(newsNavigationController, animated: false, completion: nil)
     }
 
 }
