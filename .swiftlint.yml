@@ -1,0 +1,22 @@
+disabled_rules:
+  - function_parameter_count
+  - line_length
+  - identifier_name
+  - function_body_length
+  - trailing_whitespace
+  - type_body_length
+  - type_name
+  - force_try
+  - force_cast
+  - notification_center_detachment
+  - nesting
+  - todo
+
+included: 
+  - Trews
+excluded:
+  - Pods
+
+warning_threshold: 1
+
+reporter: "xcode"
