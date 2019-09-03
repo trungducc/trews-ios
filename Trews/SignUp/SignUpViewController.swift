@@ -16,7 +16,7 @@ class SignUpViewController: ViewController {
     private let usernameInputView = InputView()
     private let passwordInputView = InputView()
     private let reenterPasswordInputView = InputView()
-    private let signUpButton = AuthenticationButton()
+    private let signUpButton = GradientButton()
     
     private let client: Client
     
@@ -34,6 +34,7 @@ class SignUpViewController: ViewController {
         
         title = Constants.Strings.signUp
 
+        addTouchOutsideGesture()
         setupSubviews()
     }
     
@@ -107,7 +108,7 @@ class SignUpViewController: ViewController {
     }
     
     @objc private func textFieldDidChange(textField: UIInputView) {
-        signUpButton.isEnabled = usernameInputView.text!.count >= 6 && passwordInputView.text!.count >= 6 && passwordInputView.text == reenterPasswordInputView.text
+        signUpButton.isEnabled = usernameInputView.text!.isValidUsername() && passwordInputView.text!.isValidPassword() && passwordInputView.text == reenterPasswordInputView.text
     }
     
     @objc private func signUpButtonDidTouch() {

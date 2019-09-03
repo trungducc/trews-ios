@@ -11,10 +11,12 @@ import SnapKit
 
 class SignInViewController: ViewController, SignUpViewControllerDelegate {
     
+    weak var delegate: SignInViewControllerDelegate?
+    
     private let containerView = UIView()
     private let usernameInputView = InputView()
     private let passwordInputView = InputView()
-    private let signInButton = AuthenticationButton()
+    private let signInButton = GradientButton()
     private let otherOptionsLabel = UILabel()
     private let facebookButton = UIButton(type: .custom)
     private let googleButton = UIButton(type: .custom)
@@ -36,6 +38,7 @@ class SignInViewController: ViewController, SignUpViewControllerDelegate {
 
         title = Constants.Strings.signIn
 
+        addTouchOutsideGesture()
         setupSubviews()
     }
     
@@ -173,7 +176,7 @@ class SignInViewController: ViewController, SignUpViewControllerDelegate {
             if let error = error {
                 self.showMessage(error)
             } else {
-                self.didSignInSuccess()
+                self.delegate?.didSignInSuccess(viewController: self)
             }
         }
     }
@@ -187,13 +190,7 @@ class SignInViewController: ViewController, SignUpViewControllerDelegate {
     }
     
     private func updateSignInButtonState() {
-        signInButton.isEnabled = usernameInputView.text!.count >= 6 && passwordInputView.text!.count >= 6
-    }
-    
-    private func didSignInSuccess() {
-        let newsViewController = NewsViewController(client: client)
-        let newsNavigationController = NavigationController(rootViewController: newsViewController)
-        present(newsNavigationController, animated: false, completion: nil)
+        signInButton.isEnabled = usernameInputView.text!.isValidUsername() && passwordInputView.text!.isValidPassword()
     }
 
 }

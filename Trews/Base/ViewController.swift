@@ -14,9 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.Color.viewControllerBackground.color
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTouchOutside))
-        view.addGestureRecognizer(gesture)
     }
     
     // MARK: Public API
@@ -25,6 +22,11 @@ class ViewController: UIViewController {
         let snackbarMessage = MDCSnackbarMessage()
         snackbarMessage.text = message
         MDCSnackbarManager.show(snackbarMessage)
+    }
+    
+    func addTouchOutsideGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTouchOutside))
+        view.addGestureRecognizer(gesture)
     }
     
     // MARK: Private API

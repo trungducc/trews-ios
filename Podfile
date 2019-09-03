@@ -11,6 +11,7 @@ target 'Trews' do
   pod 'SwiftLint'
   pod 'SnapKit', '~> 5.0.0'
   pod 'MaterialComponents/Snackbar'
+  pod 'MaterialComponents/Dialogs'
   pod 'KeychainAccess'
 
 end

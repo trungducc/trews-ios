@@ -19,9 +19,17 @@ extension DataResponse {
         return message
     }
     
-    func data() -> [String: Any]? {
+    func dictionaryData() -> [String: Any]? {
         guard let value = result.value as? [String: Any],
             let data = value["data"] as? [String: Any] else {
+                return nil
+        }
+        return data
+    }
+    
+    func arrayData() -> [[String: Any]]? {
+        guard let value = result.value as? [String: Any],
+            let data = value["data"] as? [[String: Any]] else {
                 return nil
         }
         return data

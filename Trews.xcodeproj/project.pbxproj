@@ -13,6 +13,14 @@
 		A9125715231D66620077C3BB /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9125714231D66610077C3BB /* AppController.swift */; };
 		A9125717231D67660077C3BB /* DataResponse+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9125716231D67660077C3BB /* DataResponse+Utility.swift */; };
 		A9125719231D7D790077C3BB /* Trews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9125718231D7D790077C3BB /* Trews.swift */; };
+		A912571B231D827F0077C3BB /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A912571A231D827F0077C3BB /* Result.swift */; };
+		A91B7EE6231E103F001C9159 /* CreateTrewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EE5231E103F001C9159 /* CreateTrewsCell.swift */; };
+		A91B7EE8231E1048001C9159 /* TrewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EE7231E1048001C9159 /* TrewsCell.swift */; };
+		A91B7EEC231E4090001C9159 /* CreateTrewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EEB231E4090001C9159 /* CreateTrewsViewController.swift */; };
+		A91B7EEE231E4F3A001C9159 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EED231E4F3A001C9159 /* UIViewController+Alert.swift */; };
+		A91B7EF0231E52CE001C9159 /* SignInViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EEF231E52CE001C9159 /* SignInViewControllerDelegate.swift */; };
+		A91B7EF2231E536A001C9159 /* NewsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EF1231E536A001C9159 /* NewsViewControllerDelegate.swift */; };
+		A91B7EF4231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EF3231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift */; };
 		A9B3B248231CF05B00685880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B247231CF05B00685880 /* AppDelegate.swift */; };
 		A9B3B24F231CF05D00685880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B3B24E231CF05D00685880 /* Assets.xcassets */; };
 		A9B3B252231CF05D00685880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B3B250231CF05D00685880 /* LaunchScreen.storyboard */; };
@@ -29,7 +37,7 @@
 		A9B3B27D231D0C9F00685880 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9B3B278231D0C3400685880 /* SF-Pro-Text-Regular.otf */; };
 		A9B3B27E231D0CA000685880 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9B3B277231D0C3400685880 /* SF-Pro-Text-Semibold.otf */; };
 		A9B3B280231D0CCC00685880 /* UIFont+ProText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B27F231D0CCC00685880 /* UIFont+ProText.swift */; };
-		A9B3B282231D10A700685880 /* AuthenticationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B281231D10A700685880 /* AuthenticationButton.swift */; };
+		A9B3B282231D10A700685880 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B281231D10A700685880 /* GradientButton.swift */; };
 		A9B3B284231D13BE00685880 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B283231D13BE00685880 /* UIImage+Color.swift */; };
 		A9B3B287231D238C00685880 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B286231D238C00685880 /* Client.swift */; };
 		A9B3B28A231D2D9200685880 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B289231D2D9200685880 /* SignUpViewController.swift */; };
@@ -42,6 +50,14 @@
 		A9125714231D66610077C3BB /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		A9125716231D67660077C3BB /* DataResponse+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataResponse+Utility.swift"; sourceTree = "<group>"; };
 		A9125718231D7D790077C3BB /* Trews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trews.swift; sourceTree = "<group>"; };
+		A912571A231D827F0077C3BB /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A91B7EE5231E103F001C9159 /* CreateTrewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrewsCell.swift; sourceTree = "<group>"; };
+		A91B7EE7231E1048001C9159 /* TrewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrewsCell.swift; sourceTree = "<group>"; };
+		A91B7EEB231E4090001C9159 /* CreateTrewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrewsViewController.swift; sourceTree = "<group>"; };
+		A91B7EED231E4F3A001C9159 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		A91B7EEF231E52CE001C9159 /* SignInViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A91B7EF1231E536A001C9159 /* NewsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A91B7EF3231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrewsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A9B3B244231CF05B00685880 /* Trews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B3B247231CF05B00685880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B3B24E231CF05D00685880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,7 +76,7 @@
 		A9B3B279231D0C3400685880 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
 		A9B3B27A231D0C3400685880 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		A9B3B27F231D0CCC00685880 /* UIFont+ProText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+ProText.swift"; sourceTree = "<group>"; };
-		A9B3B281231D10A700685880 /* AuthenticationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationButton.swift; sourceTree = "<group>"; };
+		A9B3B281231D10A700685880 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		A9B3B283231D13BE00685880 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		A9B3B286231D238C00685880 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		A9B3B289231D2D9200685880 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +109,11 @@
 			children = (
 				A912570C231D5E330077C3BB /* NewsViewController.swift */,
 				A9125718231D7D790077C3BB /* Trews.swift */,
+				A91B7EE5231E103F001C9159 /* CreateTrewsCell.swift */,
+				A91B7EE7231E1048001C9159 /* TrewsCell.swift */,
+				A91B7EEB231E4090001C9159 /* CreateTrewsViewController.swift */,
+				A91B7EF1231E536A001C9159 /* NewsViewControllerDelegate.swift */,
+				A91B7EF3231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -155,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B3B25F231CF5D800685880 /* SignInViewController.swift */,
+				A91B7EEF231E52CE001C9159 /* SignInViewControllerDelegate.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -167,9 +189,10 @@
 				A9B3B272231D007400685880 /* UIView+Shadow.swift */,
 				A9B3B274231D050900685880 /* InputView.swift */,
 				A9B3B27F231D0CCC00685880 /* UIFont+ProText.swift */,
-				A9B3B281231D10A700685880 /* AuthenticationButton.swift */,
+				A9B3B281231D10A700685880 /* GradientButton.swift */,
 				A9B3B283231D13BE00685880 /* UIImage+Color.swift */,
 				A9125716231D67660077C3BB /* DataResponse+Utility.swift */,
+				A91B7EED231E4F3A001C9159 /* UIViewController+Alert.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -198,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				A9B3B286231D238C00685880 /* Client.swift */,
+				A912571A231D827F0077C3BB /* Result.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -357,21 +381,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91B7EF0231E52CE001C9159 /* SignInViewControllerDelegate.swift in Sources */,
 				A9B3B248231CF05B00685880 /* AppDelegate.swift in Sources */,
 				A912570A231D5B6D0077C3BB /* SignUpViewControllerDelegate.swift in Sources */,
+				A91B7EEC231E4090001C9159 /* CreateTrewsViewController.swift in Sources */,
+				A91B7EF2231E536A001C9159 /* NewsViewControllerDelegate.swift in Sources */,
+				A91B7EE6231E103F001C9159 /* CreateTrewsCell.swift in Sources */,
 				A9B3B280231D0CCC00685880 /* UIFont+ProText.swift in Sources */,
 				A9B3B260231CF5D800685880 /* SignInViewController.swift in Sources */,
 				A9B3B26C231CFD3E00685880 /* String+Utility.swift in Sources */,
-				A9B3B282231D10A700685880 /* AuthenticationButton.swift in Sources */,
+				A9B3B282231D10A700685880 /* GradientButton.swift in Sources */,
+				A912571B231D827F0077C3BB /* Result.swift in Sources */,
 				A9B3B262231CFC5500685880 /* Constants.swift in Sources */,
 				A9B3B284231D13BE00685880 /* UIImage+Color.swift in Sources */,
 				A9125719231D7D790077C3BB /* Trews.swift in Sources */,
 				A9B3B287231D238C00685880 /* Client.swift in Sources */,
 				A9B3B28A231D2D9200685880 /* SignUpViewController.swift in Sources */,
 				A9125715231D66620077C3BB /* AppController.swift in Sources */,
+				A91B7EEE231E4F3A001C9159 /* UIViewController+Alert.swift in Sources */,
+				A91B7EF4231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift in Sources */,
 				A9125717231D67660077C3BB /* DataResponse+Utility.swift in Sources */,
 				A9B3B26F231CFDED00685880 /* NavigationController.swift in Sources */,
 				A912570D231D5E330077C3BB /* NewsViewController.swift in Sources */,
+				A91B7EE8231E1048001C9159 /* TrewsCell.swift in Sources */,
 				A9B3B271231CFF5900685880 /* ViewController.swift in Sources */,
 				A9B3B275231D050900685880 /* InputView.swift in Sources */,
 				A9B3B273231D007400685880 /* UIView+Shadow.swift in Sources */,

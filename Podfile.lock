@@ -15,6 +15,15 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
+  - MaterialComponents/Dialogs (85.11.0):
+    - MaterialComponents/Buttons
+    - MaterialComponents/Elevation
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
   - MaterialComponents/Elevation (85.11.0):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
@@ -63,6 +72,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireNetworkActivityIndicator
   - KeychainAccess
+  - MaterialComponents/Dialogs
   - MaterialComponents/Snackbar
   - SnapKit (~> 5.0.0)
   - SwiftLint
@@ -88,6 +98,6 @@ SPEC CHECKSUMS:
   SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
   SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
 
-PODFILE CHECKSUM: 2c68d0a776ed11f868d1b9c1a93bfc83ad329c41
+PODFILE CHECKSUM: 4d9d9795ba0b58cd4a500e4d0295c2eda2f32e1e
 
 COCOAPODS: 1.7.5
