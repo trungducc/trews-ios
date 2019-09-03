@@ -25,7 +25,7 @@ enum Constants {
         
         static let signUpButtonFont = UIFont.mediumProTextFont(ofSize: 15)
         
-        static let trewsTitleFont = UIFont.regularProTextFont(ofSize: 12)
+        static let trewsTitleFont = UIFont.regularProTextFont(ofSize: 14)
     }
     
     enum Strings {
@@ -71,6 +71,9 @@ enum Constants {
         
         static let create = "create"
         static let signOut = "sign_out"
+        
+        static let like = "like"
+        static let dislike = "dislike"
     }
     
     enum Color {

@@ -113,16 +113,9 @@ class Client {
             }
             
             var trews = [Trews]()
-            let now = Date().timeIntervalSince1970
             
             for dictionary in data {
-                if let id = dictionary["id"] as? UInt,
-                    let title = dictionary["title"] as? String,
-                    let creator = dictionary["user"] as? [String: Any],
-                    let creatorName = creator["username"] as? String,
-                    let createdDate = dictionary["created_date"] as? TimeInterval {
-                    let timeDifference = String.from(timeDifference: now - createdDate / 1000)
-                    let newTrews = Trews(id: id, title: title, creator: creatorName, timeDifference: timeDifference)
+                if let newTrews = Trews(dictionary: dictionary) {
                     trews.append(newTrews)
                 }
             }
@@ -144,6 +137,30 @@ class Client {
             } else {
                 completion(nil)
             }
+        }
+    }
+    
+    public func reactTrews(id: UInt, type: ReactionType, completion: @escaping (_ result: Result<Trews>) -> Void) {
+        let parameters = ["trews_id": id,
+                          "type": type.rawValue] as [String: Any]
+        
+        request("trews/react", method: .post, parameters: parameters).responseJSON { response in
+            guard response.error == nil else {
+                completion(.failure(Constants.Strings.Error.connectionError))
+                return
+            }
+            
+            if let error = response.error() {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = response.dictionaryData(), let trews = Trews(dictionary: data) else {
+                completion(.failure(Constants.Strings.Error.internalServerError))
+                return
+            }
+            
+            completion(.success(trews))
         }
     }
     

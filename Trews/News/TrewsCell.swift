@@ -15,11 +15,15 @@ class TrewsCell: UITableViewCell {
                                                         endColor: Constants.Color.gradientEndColor.color,
                                                         size: CGSize(width: 100, height: 20))
     
+    weak var delegate: TrewsCellDelegate?
+    
     private let containerView = UIView()
     private let titleLabel = UILabel()
     private let creatorBackgroundImageView = UIImageView()
     private let creatorLabel = UILabel()
     private let timeLabel = UILabel()
+    private let likeButton = ReactionButton()
+    private let dislikeButton = ReactionButton()
     
     private var creatorLabelWidthConstraint: Constraint?
     
@@ -38,6 +42,8 @@ class TrewsCell: UITableViewCell {
         titleLabel.text = trews.title
         creatorLabel.text = trews.creator
         timeLabel.text = String(format: "%@", trews.timeDifference)
+        likeButton.reactionCount = trews.likeCount
+        dislikeButton.reactionCount = trews.dislikeCount
         
         creatorLabel.snp.updateConstraints { make in
             make.width.equalTo(trews.creator.width(for: creatorLabel.frame.height, with: creatorLabel.font))
@@ -56,22 +62,30 @@ class TrewsCell: UITableViewCell {
         contentView.addSubview(containerView)
         
         creatorBackgroundImageView.image = TrewsCell.creatorBackgroundImage
-        creatorBackgroundImageView.layer.cornerRadius = 9
+        creatorBackgroundImageView.layer.cornerRadius = 10
         creatorBackgroundImageView.layer.masksToBounds = true
         containerView.addSubview(creatorBackgroundImageView)
         
         creatorLabel.textColor = .white
-        creatorLabel.font = UIFont.semiboldProTextFont(ofSize: 12)
+        creatorLabel.font = UIFont.semiboldProTextFont(ofSize: 13)
         containerView.addSubview(creatorLabel)
         
         timeLabel.textColor = Constants.Color.light.color
-        timeLabel.font = UIFont.mediumProTextFont(ofSize: 11)
+        timeLabel.font = UIFont.mediumProTextFont(ofSize: 12)
         containerView.addSubview(timeLabel)
         
         titleLabel.font = Constants.Font.trewsTitleFont
         titleLabel.textColor = Constants.Color.black.color
         titleLabel.numberOfLines = 0
         containerView.addSubview(titleLabel)
+        
+        likeButton.reactionImage = Constants.Image.like.image
+        likeButton.addTarget(self, action: #selector(likeButtonDidTouch), for: .touchUpInside)
+        containerView.addSubview(likeButton)
+        
+        dislikeButton.reactionImage = Constants.Image.dislike.image
+        dislikeButton.addTarget(self, action: #selector(dislikeButtonDidTouch), for: .touchUpInside)
+        containerView.addSubview(dislikeButton)
         
         containerView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
@@ -91,7 +105,7 @@ class TrewsCell: UITableViewCell {
             make.leading.equalToSuperview().offset(13)
             make.top.equalToSuperview().offset(6)
             make.width.equalTo(0)
-            make.height.equalTo(18)
+            make.height.equalTo(20)
         }
         
         timeLabel.snp.makeConstraints { make in
@@ -103,8 +117,28 @@ class TrewsCell: UITableViewCell {
             make.leading.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-8)
             make.top.equalTo(creatorLabel.snp.bottom).offset(6)
-            make.bottom.lessThanOrEqualToSuperview().offset(-8)
         }
+        
+        likeButton.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel)
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.bottom.lessThanOrEqualToSuperview().offset(-8)
+            make.size.equalTo(CGSize(width: 44, height: 20))
+        }
+        
+        dislikeButton.snp.makeConstraints { make in
+            make.leading.equalTo(likeButton.snp.trailing).offset(4)
+            make.size.equalTo(likeButton)
+            make.centerY.equalTo(likeButton)
+        }
+    }
+    
+    @objc private func likeButtonDidTouch() {
+        delegate?.likeButtonDidTouch(cell: self)
+    }
+    
+    @objc private func dislikeButtonDidTouch() {
+        delegate?.dislikeButtonDidTouch(cell: self)
     }
     
 }

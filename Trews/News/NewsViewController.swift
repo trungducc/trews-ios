@@ -13,7 +13,7 @@ enum Section: Int, CaseIterable {
     case create = 0, list
 }
 
-class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSource, CreateTrewsViewControllerDelegate {
+class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSource, CreateTrewsViewControllerDelegate, TrewsCellDelegate {
     
     weak var delegate: NewsViewControllerDelegate?
     
@@ -95,6 +95,24 @@ class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    // MARK: TrewsCellDelegate
+    
+    func likeButtonDidTouch(cell: TrewsCell) {
+        guard let indexPath = tableView.indexPath(for: cell), indexPath.row < trews.count else {
+            return
+        }
+        
+        reactTrews(at: indexPath, type: .like)
+    }
+    
+    func dislikeButtonDidTouch(cell: TrewsCell) {
+        guard let indexPath = tableView.indexPath(for: cell), indexPath.row < trews.count else {
+            return
+        }
+        
+        reactTrews(at: indexPath, type: .dislike)
+    }
+    
     // MARK: CreateTrewsViewControllerDelegate
     
     func didCreateTrewsSuccess(viewController: CreateTrewsViewController) {
@@ -164,6 +182,7 @@ class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(TrewsCell.self)) as? TrewsCell, index < trews.count else {
             return UITableViewCell()
         }
+        cell.delegate = self
         cell.display(trews: trews[index])
         return cell
     }
@@ -200,6 +219,30 @@ class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         createTrewsViewController.transitioningDelegate = dialogTransitionController
         
         present(createTrewsViewController, animated: true, completion: nil)
+    }
+    
+    private func reactTrews(at indexPath: IndexPath, type: ReactionType) {
+        let reactedTrews = trews[indexPath.row]
+        let finalType: ReactionType = reactedTrews.reactionType != type ? type : .none
+        
+        client.reactTrews(id: reactedTrews.id, type: finalType) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .failure(let error):
+                self.showMessage(error)
+            case .success(let reactedTrews):
+                self.update(reactedTrews: reactedTrews, at: indexPath)
+            }
+        }
+    }
+    
+    private func update(reactedTrews: Trews, at indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? TrewsCell, indexPath.row < trews.count else {
+            return
+        }
+        trews[indexPath.row] = reactedTrews
+        cell.display(trews: reactedTrews)
     }
     
 }

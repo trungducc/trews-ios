@@ -21,6 +21,8 @@
 		A91B7EF0231E52CE001C9159 /* SignInViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EEF231E52CE001C9159 /* SignInViewControllerDelegate.swift */; };
 		A91B7EF2231E536A001C9159 /* NewsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EF1231E536A001C9159 /* NewsViewControllerDelegate.swift */; };
 		A91B7EF4231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91B7EF3231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift */; };
+		A96169ED231ECF0200A5CA07 /* ReactionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96169EC231ECF0200A5CA07 /* ReactionButton.swift */; };
+		A96169EF231EDD3300A5CA07 /* TrewsCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96169EE231EDD3300A5CA07 /* TrewsCellDelegate.swift */; };
 		A9B3B248231CF05B00685880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B3B247231CF05B00685880 /* AppDelegate.swift */; };
 		A9B3B24F231CF05D00685880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B3B24E231CF05D00685880 /* Assets.xcassets */; };
 		A9B3B252231CF05D00685880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9B3B250231CF05D00685880 /* LaunchScreen.storyboard */; };
@@ -58,6 +60,8 @@
 		A91B7EEF231E52CE001C9159 /* SignInViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A91B7EF1231E536A001C9159 /* NewsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A91B7EF3231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTrewsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A96169EC231ECF0200A5CA07 /* ReactionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionButton.swift; sourceTree = "<group>"; };
+		A96169EE231EDD3300A5CA07 /* TrewsCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrewsCellDelegate.swift; sourceTree = "<group>"; };
 		A9B3B244231CF05B00685880 /* Trews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9B3B247231CF05B00685880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9B3B24E231CF05D00685880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 				A91B7EEB231E4090001C9159 /* CreateTrewsViewController.swift */,
 				A91B7EF1231E536A001C9159 /* NewsViewControllerDelegate.swift */,
 				A91B7EF3231E5B0E001C9159 /* CreateTrewsViewControllerDelegate.swift */,
+				A96169EE231EDD3300A5CA07 /* TrewsCellDelegate.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				A9B3B283231D13BE00685880 /* UIImage+Color.swift */,
 				A9125716231D67660077C3BB /* DataResponse+Utility.swift */,
 				A91B7EED231E4F3A001C9159 /* UIViewController+Alert.swift */,
+				A96169EC231ECF0200A5CA07 /* ReactionButton.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -389,8 +395,10 @@
 				A91B7EE6231E103F001C9159 /* CreateTrewsCell.swift in Sources */,
 				A9B3B280231D0CCC00685880 /* UIFont+ProText.swift in Sources */,
 				A9B3B260231CF5D800685880 /* SignInViewController.swift in Sources */,
+				A96169ED231ECF0200A5CA07 /* ReactionButton.swift in Sources */,
 				A9B3B26C231CFD3E00685880 /* String+Utility.swift in Sources */,
 				A9B3B282231D10A700685880 /* GradientButton.swift in Sources */,
+				A96169EF231EDD3300A5CA07 /* TrewsCellDelegate.swift in Sources */,
 				A912571B231D827F0077C3BB /* Result.swift in Sources */,
 				A9B3B262231CFC5500685880 /* Constants.swift in Sources */,
 				A9B3B284231D13BE00685880 /* UIImage+Color.swift in Sources */,
