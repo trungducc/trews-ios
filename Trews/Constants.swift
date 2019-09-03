@@ -40,6 +40,7 @@ enum Constants {
         
         static let news = NSLocalizedString("News", comment: "")
         static let welcome = NSLocalizedString("Hey %@, what's on your mind?", comment: "")
+        static let trewsTitlePlaceholder = NSLocalizedString("What's on your mind?", comment: "")
         
         static let post = NSLocalizedString("Post", comment: "")
         static let yes = NSLocalizedString("Yes", comment: "")
@@ -52,6 +53,8 @@ enum Constants {
         static let minutesAgo = NSLocalizedString(" minutes ago", comment: "")
         static let hoursAgo = NSLocalizedString(" hours ago", comment: "")
         static let daysAgo = NSLocalizedString(" days ago", comment: "")
+        
+        static let newTrews = NSLocalizedString("Trews", comment: "")
         
         enum Error {
             static let connectionError = NSLocalizedString("Connection error", comment: "")

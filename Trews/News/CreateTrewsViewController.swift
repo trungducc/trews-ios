@@ -13,7 +13,9 @@ class CreateTrewsViewController: ViewController, UITextViewDelegate {
     weak var delegate: CreateTrewsViewControllerDelegate?
     
     private let trewsTextView = UITextView()
+    private let trewsPlaceholderLabel = UILabel()
     private let postButton = GradientButton()
+    private let titleLabel = UILabel()
     
     private let client: Client
     
@@ -39,16 +41,26 @@ class CreateTrewsViewController: ViewController, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         postButton.isEnabled = textView.text.count > 0
+        trewsPlaceholderLabel.isHidden = textView.text.count > 0
     }
     
     // MARK: Private API
     
     private func setupSubviews() {
+        titleLabel.text = Constants.Strings.newTrews
+        titleLabel.font = UIFont.boldProTextFont(ofSize: 28)
+        view.addSubview(titleLabel)
+        
         trewsTextView.backgroundColor = .clear
         trewsTextView.font = UIFont.regularProTextFont(ofSize: 14)
         trewsTextView.textColor = Constants.Color.black.color
         trewsTextView.delegate = self
         view.addSubview(trewsTextView)
+        
+        trewsPlaceholderLabel.textColor = Constants.Color.light.color
+        trewsPlaceholderLabel.font = trewsTextView.font
+        trewsPlaceholderLabel.text = Constants.Strings.trewsTitlePlaceholder
+        view.addSubview(trewsPlaceholderLabel)
         
         postButton.addTarget(self, action: #selector(postButtonDidTouch), for: .touchUpInside)
         postButton.isEnabled = false
@@ -57,11 +69,23 @@ class CreateTrewsViewController: ViewController, UITextViewDelegate {
         
         let padding = 16
         
-        trewsTextView.snp.makeConstraints { make in
+        titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(padding)
             make.leading.equalToSuperview().offset(padding)
             make.trailing.equalToSuperview().offset(-padding)
+        }
+        
+        trewsTextView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(padding / 4)
+            make.leading.equalToSuperview().offset(14)
+            make.trailing.equalToSuperview().offset(-padding)
             make.bottom.equalTo(postButton.snp.top).offset(-padding)
+        }
+        
+        trewsPlaceholderLabel.snp.makeConstraints { make in
+            make.top.equalTo(trewsTextView).offset(8)
+            make.leading.equalTo(trewsTextView).offset(5)
+            make.trailing.equalTo(trewsTextView)
         }
         
         postButton.snp.makeConstraints { make in

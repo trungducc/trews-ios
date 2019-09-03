@@ -18,7 +18,7 @@ class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     weak var delegate: NewsViewControllerDelegate?
     
     private let tableView = UITableView()
-    private var dialogTransitionController = MDCDialogTransitionController()
+    private var dialogTransitionController: MDCDialogTransitionController!
     
     private let client: Client
     
@@ -138,7 +138,10 @@ class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSo
         }
         
         client.listTrews { [weak self] result in
-            guard let self = self, let trews = result.value else { return }
+            guard let self = self, let trews = result.value else {
+                refreshControl.endRefreshing()
+                return
+            }
             
             self.tableView.performBatchUpdates({
                 self.trews = trews
@@ -189,6 +192,8 @@ class NewsViewController: ViewController, UITableViewDelegate, UITableViewDataSo
     }
         
     private func showCreateTrewsDialog() {
+        dialogTransitionController = MDCDialogTransitionController()
+        
         let createTrewsViewController = CreateTrewsViewController(client: client)
         createTrewsViewController.delegate = self
         createTrewsViewController.modalPresentationStyle = .custom
