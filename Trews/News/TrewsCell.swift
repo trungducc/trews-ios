@@ -36,6 +36,12 @@ class TrewsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        likeButton.isSelected = false
+        dislikeButton.isSelected = false
+    }
+    
     // MARK: Public API
     
     func display(trews: Trews) {
@@ -44,6 +50,18 @@ class TrewsCell: UITableViewCell {
         timeLabel.text = String(format: "%@", trews.timeDifference)
         likeButton.reactionCount = trews.likeCount
         dislikeButton.reactionCount = trews.dislikeCount
+        
+        switch trews.reactionType {
+        case .like:
+            likeButton.isSelected = true
+            dislikeButton.isSelected = false
+        case .dislike:
+            dislikeButton.isSelected = true
+            likeButton.isSelected = false
+        default:
+            likeButton.isSelected = false
+            dislikeButton.isSelected = false
+        }
         
         creatorLabel.snp.updateConstraints { make in
             make.width.equalTo(trews.creator.width(for: creatorLabel.frame.height, with: creatorLabel.font))

@@ -21,6 +21,12 @@ class ReactionButton: UIButton {
         }
     }
     
+    override var isSelected: Bool {
+        didSet {
+            reactionCountLabel.textColor = isSelected ? .red : Constants.Color.light.color
+        }
+    }
+    
     private let reactionImageView = UIImageView()
     private let reactionCountLabel = UILabel()
     
@@ -41,7 +47,6 @@ class ReactionButton: UIButton {
         addSubview(reactionImageView)
         
         reactionCountLabel.font = UIFont.mediumProTextFont(ofSize: 15)
-        reactionCountLabel.textColor = Constants.Color.black.color
         reactionCountLabel.textColor = Constants.Color.light.color
         addSubview(reactionCountLabel)
         
